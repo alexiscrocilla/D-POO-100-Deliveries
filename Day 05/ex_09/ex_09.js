@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Facteur de descente (ajustement en pixels par kg supplémentaire)
     const sinkingFactor = 5;
 
+    // Position actuelle du carré (commence à initialTop)
+    let currentTop = initialTop;
+
     // Événement au clic sur le carré jaune
     yellowSquare.addEventListener("click", () => {
         // Augmenter le poids
@@ -22,20 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
             weightDisplay.textContent = `${weight} kg`;
         }
 
-        // Calculer la nouvelle position du carré (simule le principe d'Archimède)
+        // Calculer la poussée d'Archimède
         const buoyancyForce = squareVolume * waterDensity; // Poussée d'Archimède
-        let newTop;
 
-        // Toujours descendre dès le premier clic
+        // Calculer la nouvelle position (ajouter uniquement si le poids dépasse la poussée)
         if (weight > buoyancyForce) {
-            // Si le poids dépasse la poussée, descendre en fonction du surplus
-            newTop = initialTop + (weight - buoyancyForce) * sinkingFactor;
-        } else {
-            // Descente minimale dès le premier clic pour que le carré ne reste pas fixe
-            newTop = initialTop + (weight * sinkingFactor) / 2;
+            currentTop += (weight - buoyancyForce) * sinkingFactor;
         }
 
-        // Limiter la position du carré à la hauteur maximale de 800px
-        yellowSquare.style.top = `${Math.min(newTop, 800)}px`;
+        // Limiter la descente à une hauteur maximale de 800px
+        currentTop = Math.min(currentTop, 800);
+
+        // Appliquer la nouvelle position au carré
+        yellowSquare.style.top = `${currentTop}px`;
     });
 });
