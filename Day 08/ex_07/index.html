@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unclickable Chuck Norris</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+    <img
+            :style="{ top: positionY + 'px', left: positionX + 'px' }"
+            @mousemove="moveImage"
+            @mouseenter="teleportImage"
+            src="chuck-norris.jpg"
+            alt="Chuck Norris"
+    />
+</div>
+<script src="ex_07.js"></script>
+</body>
+</html>

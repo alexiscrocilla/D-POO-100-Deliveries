@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+  <script src="https://unpkg.com/vue@2"></script>
+  <title>Vue.js Exercise 06</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <h1>Vue.js Exercise 06</h1>
+  <p>The name of the pet is: {{ petName }}</p> <!-- BLANK1 -->
+  <p>The result of number1 multiplied by number2 is: {{ number1 * number2 }}</p> <!-- BLANK2 -->
+  <p>The half of number1 is: {{ halfNumber1() }}</p> <!-- BLANK3 -->
+  <p>Number2 raised to the power of 3 is: {{ pow3(number2) }}</p> <!-- BLANK4 -->
+  <p>The capitalized sentence1 is: {{ sentence1 | capitalize }}</p> <!-- BLANK5 -->
+  <p>The reversed sentence2 is: {{ sentence2 | reverse }}</p> <!-- BLANK6 -->
+  <p>The capitalized and reversed sentence3 is: {{ sentence3 | capitalize | reverse }}</p>
+</div>
+
+<script src="ex_06.js"></script>
+</body>
+</html>
